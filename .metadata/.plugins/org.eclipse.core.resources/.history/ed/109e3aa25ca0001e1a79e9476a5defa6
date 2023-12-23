@@ -1,0 +1,23 @@
+package com.example.demo.repositories;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.entities.Client;
+
+
+@Repository
+public interface ClientRepository extends JpaRepository<Client,Long>{
+	
+	@Bean
+	CommandLineRunner initialiserBaseH2(ClientRepository clientRepository) {
+		return args -> {
+			clientRepository.save(new Client(Long.parseLong("1"),"Rabab SELIMANI",Float.parseFloat("23")));
+			clientRepository.save(new Client(Long.parseLong("2"),"Amal RAMI",Float.parseFloat("22")));
+			clientRepository.save(new Client(Long.parseLong("3"),"Samir SAFI",Float.parseFloat("22")));
+		};
+	}
+
+}

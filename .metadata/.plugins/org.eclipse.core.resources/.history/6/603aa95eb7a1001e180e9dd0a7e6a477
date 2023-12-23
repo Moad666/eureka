@@ -1,0 +1,19 @@
+package com.example.demo.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.ClientService;
+import com.example.demo.entities.Client;
+
+@Service
+public class VoitureService {
+	
+	@Autowired
+	private ClientService clientService;
+	
+	public Client getClientById(Long id) {
+        return clientService.clientById(id);
+    }
+	
+}

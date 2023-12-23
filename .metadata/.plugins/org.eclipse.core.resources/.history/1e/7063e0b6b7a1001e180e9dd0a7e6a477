@@ -1,0 +1,27 @@
+package com.example.demo.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.demo.ClientService;
+import com.example.demo.entities.Client;
+import com.example.demo.entities.Voiture;
+import com.example.demo.repositories.VoitureRepository;
+
+@Service
+public class VoitureService {
+	
+	@Autowired
+	private VoitureRepository carRepository;
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	private final String URL="http://localhost:8888/SERVICE-CLIENT";
+	
+		
+	
+}

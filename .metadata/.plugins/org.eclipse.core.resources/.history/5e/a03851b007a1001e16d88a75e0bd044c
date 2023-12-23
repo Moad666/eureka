@@ -1,0 +1,26 @@
+package com.example.demo;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.example.demo.entities.Voiture;
+import com.example.demo.repositories.VoitureRepository;
+
+@SpringBootApplication
+public class VoitureApplication {
+
+	
+	@Bean
+	CommandLineRunner initialiserBaseH2(VoitureRepository voitureRepository) {
+		return args -> {
+			voitureRepository.save(new Voiture(Long.parseLong("1"),"AA1223","2023",Long.parseLong("1")));
+			voitureRepository.save(new Voiture(Long.parseLong("2"),"BB4232","2021",Long.parseLong("2")));
+		};
+	}
+	public static void main(String[] args) {
+		SpringApplication.run(VoitureApplication.class, args);
+	}
+
+}
